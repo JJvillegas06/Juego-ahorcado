@@ -10,7 +10,7 @@ body{
     height: 100dvh;
     justify-content: space-between;
     align-items: center;
-    padding: 15%;
+    padding: 10%;
     position: relative;
     gap: 2rem;
 }
@@ -52,4 +52,13 @@ body{
     height: 50px;
     font-size: 2rem;
     text-align: center;
+}
+
+.divLetrasErradas {
+    width: 80dvw;
+    height: 150px;
+    border: 1px solid grey;
+    border-radius: 50px;
+    text-align: center;
+
 }
