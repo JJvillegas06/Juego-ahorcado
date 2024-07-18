@@ -1,0 +1,55 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    height: 100dvh;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15%;
+    position: relative;
+    gap: 2rem;
+}
+
+.divMuñeco{
+    position: relative;
+    width: 500px;
+    height: 500px;
+    background-color: beige;
+}
+
+.divPalabra{
+    height: 100px;
+    width: 80dvw;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.divPalabra span{
+    width: 40px;
+    height: 40px;
+    border-bottom: 1px solid black;
+}
+
+.divInput{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.divInput input, .divInput button{
+    width: 50px;
+   
+}
+
+.divInput input {
+    height: 50px;
+    font-size: 2rem;
+    text-align: center;
+}
