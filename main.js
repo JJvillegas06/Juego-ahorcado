@@ -30,6 +30,10 @@ botonEnviar.addEventListener('click', ()=>{
         for (let i=0; i<palabraAleatoria.length;i++){
             console.log("Revisando la letra:", palabraAleatoria[i]);
             if (letraIngresada == palabraAleatoria[i]){
+                //esta parte del codigo crea una variable que trae 
+                //los espacios donde se va a mostrar la letra cada que el usuario acierte
+                let espacioLetra = document.querySelectorAll('.letra')
+                espacioLetra[i].innerHTML = letraIngresada
                 console.log("coincidencia en "+ i)
                 hayCoincidencia = true
                 palabraOculta[i] = true
@@ -39,8 +43,18 @@ botonEnviar.addEventListener('click', ()=>{
         }
         if(!hayCoincidencia){
             letrasErradas.push(letraIngresada)
+            
+        }
+       
+        // esta parte trae una lista de etiquetas span que es donde se va a ir mostrando
+        //la letra cada vez que el usuario se equivoque hasta llegar a 8 equivocaciones
+        let mostrarLetrasErradas = document.querySelectorAll('.letrasErradas')
+        for (let i=0; i<letrasErradas.length;i++){
+            mostrarLetrasErradas[i].innerHTML = letrasErradas[i]
+
         }
         
+    
         console.log(letrasErradas)
         console.log(palabraOculta)
     }
