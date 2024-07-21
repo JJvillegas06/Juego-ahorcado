@@ -24,7 +24,6 @@ botonEnviar.addEventListener('click', ()=>{
     if (letrasErradas.length >= 8){
         alert("Has perdido, la palabra era: " + palabraAleatoria)
     }else{
-
         let letraIngresada = document.querySelector("#letra").value
         let hayCoincidencia = false
         for (let i=0; i<palabraAleatoria.length;i++){
@@ -37,6 +36,7 @@ botonEnviar.addEventListener('click', ()=>{
                 console.log("coincidencia en "+ i)
                 hayCoincidencia = true
                 palabraOculta[i] = true
+                
             }else{
                 console.log("no coincidencia en "+ i)
             }
@@ -45,15 +45,26 @@ botonEnviar.addEventListener('click', ()=>{
             letrasErradas.push(letraIngresada)
             
         }
-       
+        
         // esta parte trae una lista de etiquetas span que es donde se va a ir mostrando
         //la letra cada vez que el usuario se equivoque hasta llegar a 8 equivocaciones
         let mostrarLetrasErradas = document.querySelectorAll('.letrasErradas')
         for (let i=0; i<letrasErradas.length;i++){
             mostrarLetrasErradas[i].innerHTML = letrasErradas[i]
-
         }
         
+        // Función para verificar si todas las posiciones son true
+        function letrasAcertadas (Array){
+            for(let i = 0; i < Array.length; i ++){
+                if(!Array[i]){
+                    return false // Si encontramos una posición false, retornamos false
+                }
+            }
+            return true  // Si todas las posiciones son true, retornamos true
+        }
+            if(letrasAcertadas(palabraOculta)){
+           alert('Ganaste la palabra oculta es :' + palabraAleatoria)
+        }
     
         console.log(letrasErradas)
         console.log(palabraOculta)
