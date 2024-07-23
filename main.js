@@ -16,12 +16,13 @@ let numeroAleatorio = Math.floor(Math.random()*palabras.length)
 let palabraAleatoria = palabras[numeroAleatorio]
 let palabraOculta = [false,false,false,false,false]
 let letrasErradas = []
+let intentosFallidos = 0
 
-
+const dibujo = document.querySelectorAll(".dibujo")
 const botonEnviar = document.querySelector("#enviar")
 botonEnviar.addEventListener('click', ()=>{
    console.log(palabraAleatoria)
-    if (letrasErradas.length >= 8){
+    if (letrasErradas.length >= 9){
         alert("Has perdido, la palabra era: " + palabraAleatoria)
     }else{
         let letraIngresada = document.querySelector("#letra").value
@@ -38,8 +39,10 @@ botonEnviar.addEventListener('click', ()=>{
             }
         }
         if(!hayCoincidencia){
+            console.log(dibujo);
             letrasErradas.push(letraIngresada)
-            
+            dibujo[intentosFallidos].classList.remove("ocultar")
+            intentosFallidos++
         }
         
         // esta parte trae una lista de etiquetas span que es donde se va a ir mostrando
