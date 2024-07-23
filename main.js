@@ -20,25 +20,21 @@ let letrasErradas = []
 
 const botonEnviar = document.querySelector("#enviar")
 botonEnviar.addEventListener('click', ()=>{
-    console.log(palabraAleatoria);
+   console.log(palabraAleatoria)
     if (letrasErradas.length >= 8){
         alert("Has perdido, la palabra era: " + palabraAleatoria)
     }else{
         let letraIngresada = document.querySelector("#letra").value
         let hayCoincidencia = false
         for (let i=0; i<palabraAleatoria.length;i++){
-            console.log("Revisando la letra:", palabraAleatoria[i]);
+           
             if (letraIngresada == palabraAleatoria[i]){
                 //esta parte del codigo crea una variable que trae 
                 //los espacios donde se va a mostrar la letra cada que el usuario acierte
                 let espacioLetra = document.querySelectorAll('.letra')
                 espacioLetra[i].innerHTML = letraIngresada
-                console.log("coincidencia en "+ i)
                 hayCoincidencia = true
                 palabraOculta[i] = true
-                
-            }else{
-                console.log("no coincidencia en "+ i)
             }
         }
         if(!hayCoincidencia){
@@ -54,17 +50,27 @@ botonEnviar.addEventListener('click', ()=>{
         }
         
         // Función para verificar si todas las posiciones son true
-        function letrasAcertadas (Array){
-            for(let i = 0; i < Array.length; i ++){
-                if(!Array[i]){
-                    return false // Si encontramos una posición false, retornamos false
+        //function letrasAcertadas (){
+            let usuarioGanador = true
+            for(let i = 0; i < palabraOculta.length; i ++){
+                console.log('revisando palabra oculta'+ i + palabraOculta[i])
+                if(!palabraOculta[i]){
+                    usuarioGanador = false
                 }
+                console.log(usuarioGanador)
+                     // Si encontramos una posición false, retornamos false
             }
-            return true  // Si todas las posiciones son true, retornamos true
-        }
-            if(letrasAcertadas(palabraOculta)){
+            
+            if (usuarioGanador) {
+                alert('ganaste')
+            }
+
+              // Si todas las posiciones son true, retornamos true
+        //}
+        
+            /*if(letrasAcertadas(palabraOculta)){
            alert('Ganaste la palabra oculta es :' + palabraAleatoria)
-        }
+        }*/
     
         console.log(letrasErradas)
         console.log(palabraOculta)
